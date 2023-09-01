@@ -7,6 +7,7 @@ load_dotenv()
 
 logging.basicConfig(level=logging.INFO, format='%(name)s %(asctime)s %(levelname)s %(message)s')
 
+logging.info('Start')
 bot_token = os.getenv('TG_BOT_TOKEN')
  
 async def get_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
