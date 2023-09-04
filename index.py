@@ -17,13 +17,13 @@ logging.info('Start')
 
 async def get_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
-    msg = '你的Chat ID是 %s' % (str(chat_id))
-    await bot_app.bot.send_message(chat_id=chat_id, text=msg)
+    msg = '你的Chat ID是 %s' % str(chat_id)
+    await Bot(TELEGRAM_API_TOKEN).send_message(chat_id=chat_id, text=msg)
     logging.info('reply: %s' % msg)
 
 async def get_url(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    msg = '小助手的網址是: ' % (str(ACBS_HELPER_URL))
-    await bot_app.bot.send_message(chat_id=update.effective_chat.id, text=msg)
+    msg = '小助手的網址是: %s' % ACBS_HELPER_URL
+    await Bot(TELEGRAM_API_TOKEN).send_message(chat_id=update.effective_chat.id, text=msg)
     logging.info('reply: %s' % msg)
 
 async def handle_text(update: Update, context: CallbackContext) -> None:
