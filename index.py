@@ -22,7 +22,7 @@ async def get_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info('reply: %s' % msg)
 
 async def get_url(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    msg = '小助手的網址是: ' % ACBS_HELPER_URL
+    msg = '小助手的網址是: ' % (str(ACBS_HELPER_URL))
     await bot_app.bot.send_message(chat_id=update.effective_chat.id, text=msg)
     logging.info('reply: %s' % msg)
 
@@ -50,3 +50,8 @@ async def webhook() -> str:
     update = Update.de_json(request.get_json(force=True), bot_app.bot)
     await bot_app.process_update(update)
     return 'ok'
+
+@app.route('/', methods=['GET'])
+async def hello() -> str:
+    return 'hello world'
+
